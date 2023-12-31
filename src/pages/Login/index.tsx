@@ -1,3 +1,5 @@
+import UserAuth from "../../components/login";
+
 export default function LoginPage() {
-  return <h1>Login</h1>;
+  return <UserAuth authType="login" />;
 }

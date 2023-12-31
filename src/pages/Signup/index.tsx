@@ -1,3 +1,6 @@
+import UserAuth from "../../components/login";
+
 export default function SignupPage() {
-  return <h1>Sign Up</h1>;
+  return <UserAuth authType="signup" />;
+
 }
