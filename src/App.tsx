@@ -11,6 +11,7 @@ function App() {
       <Route path="/register" element={<SignupPage />} />
       <Route path="/new-post" element={<NewPostPage/>} />
     </Routes>
+
   );
 }
 
