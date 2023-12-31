@@ -1,14 +1,14 @@
 import "./styles.css";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-
-import { NavLink } from "react-router-dom";
-interface LoginProps {
-  loginType: "login" | "signup" | undefined;
+import { NavLink, useNavigate } from "react-router-dom";
+interface IuserAuth {
+  authType: "login" | "signup" | undefined;
 }
 
-function Login({ loginType }: LoginProps) {
+export default function UserAuth({ authType }: IuserAuth) {
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const navigate = useNavigate();
 
   const handleChangeLogin = (e: ChangeEvent<HTMLInputElement>) => {
     setLogin(e.target.value);
@@ -24,16 +24,15 @@ function Login({ loginType }: LoginProps) {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Username:", login);
-    console.log("Password:", password);
     setLogin("");
     setPassword("");
+    navigate('/new-post'); 
   };
 
   return (
     <>
       <div className="login-container">
-        {loginType === "login" ? <h1>Login</h1> : <h1>Criar conta</h1>}
+        {authType === "login" ? <h1>Login</h1> : <h1>Criar conta</h1>}
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -50,10 +49,10 @@ function Login({ loginType }: LoginProps) {
           />
           <input
             type="submit"
-            value={loginType === "login" ? "Entrar" : "Criar conta"}
+            value={authType === "login" ? "Entrar" : "Criar conta"}
           />
         </form>
-        {loginType === "login" ? (
+        {authType === "login" ? (
           <NavLink to="/signup">Criar conta</NavLink>
         ) : (
           <NavLink to="/login">Já tenho conta</NavLink>
@@ -62,5 +61,3 @@ function Login({ loginType }: LoginProps) {
     </>
   );
 }
-
-export default Login;

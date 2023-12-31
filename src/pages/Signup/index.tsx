@@ -1,5 +1,5 @@
-import Login from "../../components/login";
+import UserAuth from "../../components/login";
 
 export default function SignupPage() {
-  return <Login loginType="signup" />;
+  return <UserAuth authType="signup" />;
 }

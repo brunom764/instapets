@@ -1,5 +1,5 @@
-import Login from "../../components/login";
+import UserAuth from "../../components/login";
 
 export default function LoginPage() {
-  return <Login loginType="login" />;
+  return <UserAuth authType="login" />;
 }
